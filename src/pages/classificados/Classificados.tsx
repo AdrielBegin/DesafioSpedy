@@ -8,10 +8,11 @@ import { Api } from '../../providers';
 
 
 export const Classificado = () => {
+
   const [modal, setModal] = useState(false);
   const [classificados, setClassificados] = useState<ICriarClassificados[]>([]);
   const [contador, setContador] = useState(0);
-  const toggle = () => setModal(!modal);
+
   const getClassificados = async () => {
     try {
       const response = await Api.get('/api/Classificados');
@@ -63,7 +64,9 @@ export const Classificado = () => {
               </Col>
             ))}
           </CardGroup>
-          <Card className='text-center text-white' color="secondary">
+        </Col>
+        <Col style={{display: 'flex',   justifyContent: 'center'}}>
+          <Card  style={{ width: '157rem' }} className='text-center text-white ' color="secondary">
             Classificados ({contador})
           </Card>
         </Col>
