@@ -60,9 +60,12 @@ export const Classificado = () => {
                   </CardText>
                   <Button color="danger" onClick={() => excluir(classificado.Id)}>Excluir</Button>
                 </Card>
-              </Col>            
+              </Col>
             ))}
           </CardGroup>
+          <Card className='text-center text-white' color="secondary">
+            Classificados ({contador})
+          </Card>
         </Col>
       </Row>
     </div>
