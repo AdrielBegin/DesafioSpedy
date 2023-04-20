@@ -45,17 +45,17 @@ export const NovoClassificados = ({getClassificados}: INovoClassificado) => {
         </Button>
         <Modal isOpen={modal} toggle={toggleModal} >
           <Form onSubmit={handleSubmit}>
-            <ModalHeader toggle={toggleModal}>Novo Classificado</ModalHeader>
+            <ModalHeader className='d-flex flex-column' toggle={toggleModal}>Novo Classificado</ModalHeader>
             <ModalBody>
               <Input name='Titulo' className='w-100 my-2' onChange={handleChange} value={classifica.Titulo} placeholder='Titulo' />
               <Input name='Descricao' className='w-100 my-2' onChange={handleChange} value={classifica.Descricao} placeholder='Descrição' />              
             </ModalBody>
             <ModalFooter>
-              <Button color="primary" type='submit' >
+              <Button color="success" type='submit' >
                 Salvar
               </Button>{''}
-              <Button color="secondary" onClick={toggle}>
-                Cancel
+              <Button color="warning" onClick={toggle}>
+                Cancelar
               </Button>
             </ModalFooter>
           </Form>

@@ -10,13 +10,13 @@ import { Api } from '../../providers';
 export const Classificado = () => {
   const [modal, setModal] = useState(false);
   const [classificados, setClassificados] = useState<ICriarClassificados[]>([]);
-
+  const [contador, setContador] = useState(0);
   const toggle = () => setModal(!modal);
-
   const getClassificados = async () => {
     try {
       const response = await Api.get('/api/Classificados');
       setClassificados(response.data);
+      setContador(response.data.length);
     } catch (error) {
       console.log(error);
     }
@@ -26,6 +26,7 @@ export const Classificado = () => {
     try {
       await Api.delete(`/api/Classificados/${Id}`);
       getClassificados();
+      setContador(contador - 1);
     } catch (error) {
       console.log("err: ", error)
     }
@@ -44,11 +45,11 @@ export const Classificado = () => {
           <CardText>
             Classificados
           </CardText>
-          <CardGroup className='d-flex justify-content-center flex-wrap'>
+          <CardGroup className='d-flex  flex-wrap'>
             {classificados.map((classificado) => (
               <Col key={classificado.Id} className='m-3 p-2' sm="5" style={{ width: '18rem' }}>
                 <Card body >
-                  <CardHeader className='text-center'>
+                  <CardHeader className='text-center secondary text-dark'>
                     {classificado.Titulo}
                   </CardHeader>
                   <CardText>
@@ -59,14 +60,11 @@ export const Classificado = () => {
                   </CardText>
                   <Button color="danger" onClick={() => excluir(classificado.Id)}>Excluir</Button>
                 </Card>
-              </Col>
+              </Col>            
             ))}
           </CardGroup>
         </Col>
       </Row>
-      <CardFooter>
-        Footer
-      </CardFooter>
     </div>
   );
 };
