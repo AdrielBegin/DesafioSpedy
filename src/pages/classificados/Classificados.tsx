@@ -39,8 +39,7 @@ export const Classificado = () => {
 
       if (confirmar.isConfirmed) {
         const response = await Api.delete(`/api/Classificados/${Id}`);
-        response.status === 201 && getClassificados();
-        setContador(contador - 1);
+        response.status === 201 && setContador(contador - 1);
         Swal.fire({
           title: 'Exclusão realizado com sucesso',
           icon: 'success',
@@ -54,13 +53,11 @@ export const Classificado = () => {
         icon: 'error',
       });
     }
+    getClassificados();
   };
-
   useEffect(() => {
     getClassificados()
   }, [])
-
-
   return (
     <div>
       <Navbar
