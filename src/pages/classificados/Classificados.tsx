@@ -6,6 +6,7 @@ import { ICriarClassificados } from '../../interfaces';
 import { HiMagnifyingGlass } from 'react-icons/hi2'
 import { Api } from '../../providers';
 import { AtualizarClassificados } from '../atualizarclassificados/AtualizarClassificados';
+import Swal from 'sweetalert2'
 
 
 export const Classificado = () => {
@@ -26,21 +27,46 @@ export const Classificado = () => {
 
   const excluir = async (Id: number) => {
     try {
-      const response = await Api.delete(`/api/Classificados/${Id}`);
-      response.status === 201 && getClassificados()
-      getClassificados();
-      setContador(contador - 1);
+      const confirmar = await Swal.fire({
+        title: 'Tem certeza que deseja excluir?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        confirmButtonText: 'Excluir',
+        cancelButtonColor: '#35dc51',
+        cancelButtonText: 'Cancelar',
+      });
+
+      if (confirmar.isConfirmed) {
+        const response = await Api.delete(`/api/Classificados/${Id}`);
+        response.status === 201 && getClassificados();
+        setContador(contador - 1);
+        Swal.fire({
+          title: 'Exclusão realizado com sucesso',
+          icon: 'success',
+        });
+      }
     } catch (error) {
-      console.log("err: ", error)
+      console.log("err: ", error);
+      Swal.fire({
+        title: 'Erro ao excluir',
+        text: 'Erro ao excluir o card',
+        icon: 'error',
+      });
     }
   };
 
   useEffect(() => {
     getClassificados()
   }, [])
+
+
   return (
     <div>
-      <Navbar className=''  style={{backgroundColor: '#4E474F'}}>
+      <Navbar
+        style={{
+          backgroundColor: '#4E474F'
+        }}>
         <Col className='d-flex justify-content-center'>
           <NavbarBrand className='Brand text-light'>
             <HiMagnifyingGlass /> Classificados
@@ -55,18 +81,23 @@ export const Classificado = () => {
             </Col>
             <CardGroup className='d-flex  flex-wrap'>
               {classificados.map((classificado) => (
-                <Col key={classificado.Id} className='m-3 p-2' sm="5" style={{ width: '18rem' }}>
+                <Col key={classificado.Id}
+                  className='m-3 p-2'
+                  sm="5"
+                  style={{
+                    width: '18rem'
+                  }}>
                   <Card body >
                     <CardHeader className='text-center secondary text-dark'>
                       {classificado.Titulo}
                     </CardHeader>
                     <CardText>
-                      {classificado.Descricao}
-                    </CardText>
-                    <CardText>
                       Data de Cadastro: {new Date(classificado.DataHora).toLocaleDateString('pt-BR')}
                     </CardText>
-                    <Button color="danger" onClick={() => excluir(classificado.Id)} >
+                    <CardText>
+                      {classificado.Descricao}
+                    </CardText>
+                    <Button color="danger" onClick={() => excluir(classificado.Id)}>
                       Excluir
                     </Button>
                     <Col className='d-flex justify-content-center' >
@@ -76,8 +107,19 @@ export const Classificado = () => {
                 </Col>
               ))}
             </CardGroup>
-            <Col className='flex-wrap m-3 p-2' style={{ display: 'flex', justifyContent: 'center' }}>
-              <Card style={{ width: '48rem', backgroundColor: '#4E474F', borderRadius: '4px ' }} className='text-center text-white ' >
+            <Col
+              className='flex-wrap m-3 p-2'
+              style={{
+                display: 'flex',
+                justifyContent: 'center'
+              }}>
+              <Card
+                className='text-center text-white '
+                style={{
+                  width: '48rem',
+                  backgroundColor: '#4E474F',
+                  borderRadius: '4px '
+                }}>
                 {contador} Classificados
               </Card>
             </Col>

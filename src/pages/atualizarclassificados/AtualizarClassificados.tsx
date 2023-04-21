@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Form, CardText } from 'reactstrap';
+import Swal from 'sweetalert2'
+import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reactstrap';
 import { ICriarClassificados } from '../../interfaces';
 import { Api } from '../../providers';
 
-import { Classificado } from '../classificados/Classificados';
 
 interface IAtualizarClassificado {
     classificado: ICriarClassificados;
@@ -27,12 +27,14 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
     const atualizarClassificados = async (classificados: ICriarClassificados) => {
         try {
             await Api.put(`/api/Classificados/${classifica.Id}`, classificados);
+            Swal.fire({title: 'Atualizado com sucesso',icon: 'success'});
             getClassificados();
             setModal(false);
         } catch (error) {
             console.error(error);
         }
-    }
+    }   
+
     return (
         <>
             <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '0px', padding: '1vw 25px 0px' }}>
@@ -43,15 +45,15 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
                     <Form onSubmit={atualiza => { atualiza.preventDefault(); atualizarClassificados(classifica) }}>
                         <ModalHeader className='d-flex flex-column' toggle={toggleModal}>Atualizar Classificado</ModalHeader>
                         <ModalBody>
-                            <Input name='Titulo' className='w-100 my-2' onChange={atualizarEstado} value={classifica.Titulo} placeholder='Titulo' />
-                            <Input name='Descricao' className='w-100 my-2' onChange={atualizarEstado} value={classifica.Descricao} placeholder='Descrição' />
+                            <Input name='Titulo' className='w-100 my-2' onChange={atualizarEstado} value={classifica.Titulo} placeholder='Titulo' required/>
+                            <Input name='Descricao' className='w-100 my-2' onChange={atualizarEstado} value={classifica.Descricao} placeholder='Descrição' required/>
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="success" type='submit' onClick={() => atualizarClassificados(classifica)}>
-                                Salvar
+                            <Button color="success" type='submit' onClick={() => {atualizarClassificados(classifica)}}>
+                                Salvar                                
                             </Button>{''}
                             <Button color="warning" onClick={toggle}>
-                                Cancelar
+                                Cancelar                                
                             </Button>
                         </ModalFooter>
                     </Form>
