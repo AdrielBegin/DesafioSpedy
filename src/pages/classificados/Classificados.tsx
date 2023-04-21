@@ -39,16 +39,16 @@ export const Classificado = () => {
     getClassificados()
   }, [])
   return (
-    <div >
-      <Navbar className='' color="dark" dark>
+    <div>
+      <Navbar className=''  style={{backgroundColor: '#4E474F'}}>
         <Col className='d-flex justify-content-center'>
-          <NavbarBrand className='Brand'>
+          <NavbarBrand className='Brand text-light'>
             <HiMagnifyingGlass /> Classificados
           </NavbarBrand>
         </Col>
       </Navbar>
       <div>
-        <Row>
+        <Row className='m-0' >
           <Col xs={12}>
             <Col className='d-flex justify-content-end ml-auto w-100'>
               <NovoClassificados getClassificados={getClassificados} />
@@ -77,7 +77,7 @@ export const Classificado = () => {
               ))}
             </CardGroup>
             <Col className='flex-wrap m-3 p-2' style={{ display: 'flex', justifyContent: 'center' }}>
-              <Card style={{ width: '48rem', backgroundColor: '#4E474F', borderRadius: '4px' }} className='text-center text-white ' >
+              <Card style={{ width: '48rem', backgroundColor: '#4E474F', borderRadius: '4px ' }} className='text-center text-white ' >
                 {contador} Classificados
               </Card>
             </Col>

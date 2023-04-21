@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Form,CardText } from 'reactstrap';
+import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Form, CardText } from 'reactstrap';
 import { ICriarClassificados } from '../../interfaces';
 import { Api } from '../../providers';
 
@@ -36,7 +36,7 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
     return (
         <>
             <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '0px', padding: '1vw 25px 0px' }}>
-                <Button color="warning" onClick={toggleModal} className=' m-0 ' style={{padding: '6px 88px 4px 88px'}}>
+                <Button color="warning" onClick={toggleModal} className=' m-0 ' style={{ padding: '6px 88px 4px 88px' }}>
                     Atualizar
                 </Button>
                 <Modal isOpen={modal} toggle={toggleModal} >
@@ -47,7 +47,7 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
                             <Input name='Descricao' className='w-100 my-2' onChange={atualizarEstado} value={classifica.Descricao} placeholder='Descrição' />
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="success" type='submit' onClick={()=>atualizarClassificados(classifica)}>
+                            <Button color="success" type='submit' onClick={() => atualizarClassificados(classifica)}>
                                 Salvar
                             </Button>{''}
                             <Button color="warning" onClick={toggle}>
