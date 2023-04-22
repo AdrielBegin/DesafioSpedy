@@ -20,6 +20,9 @@ Diga como essa etapa será:
 ```
 npx create-react-app desafioSpedy --template typescript
 
+cd desafioSpedy
+npm start
+
 npm install reactstrap react react-dom
 
 npm install --save bootstrap
