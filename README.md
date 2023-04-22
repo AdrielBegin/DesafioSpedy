@@ -16,7 +16,7 @@ API da sua preferencia
 
 Seguiam os passo-a-passo que para que você consiga executar para ter um ambiente de desenvolvimento em execução.
 
-Diga como essa etapa será:
+
 
 ```
 npx create-react-app desafioSpedy --template typescript
