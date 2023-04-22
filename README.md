@@ -41,12 +41,12 @@ https://user-images.githubusercontent.com/95453666/233799094-2513f005-3b55-47dc-
 
 ## 🖥 Telas da Aplicação 
 
-#Principal
+# Tela Principal
 
 ![f271b40e-6d6b-44fe-afb9-d9d463266a38](https://user-images.githubusercontent.com/95453666/233798474-5119c378-3475-45a8-a36a-d3936452fd4c.jpg)
 
 
-#Novo Cadastro
+# Novo Cadastro
 
 
 ![b0a13521-edf9-4ce3-9bfb-167c5024f26a](https://user-images.githubusercontent.com/95453666/233798515-cd517ccc-d6ea-4f0a-bede-8129701cab0b.jpg)
@@ -81,7 +81,6 @@ https://user-images.githubusercontent.com/95453666/233799094-2513f005-3b55-47dc-
 
 
 
-
 #Mensagem de confirmação se tem certeza de que vai excluir
 
 
@@ -94,6 +93,10 @@ https://user-images.githubusercontent.com/95453666/233799094-2513f005-3b55-47dc-
 ![ee85dbdd-3b01-4488-b50c-4057dbc58b6e](https://user-images.githubusercontent.com/95453666/233798829-54d94f0a-5c6b-4050-9404-c3932d9aaf49.jpg)
 
 
+## 🛠️ Construído com
+
+API construir em .NET Framework 6.0
+E a biblioteca react com Type Script
 
 
 
