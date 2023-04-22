@@ -9,6 +9,7 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 ### 📋 Pré-requisitos
 ```
 Node v18
+API da sua preferencia
 ```
 
 ### 🔧 Instalação
@@ -32,7 +33,13 @@ npm i sweetalert2
 ```
 ## ⚙️ Executando os testes
 
-Explicar como executar os testes automatizados para este sistema.
+Aqui está como ficou a aplicação fazendo execução de testes.
+
+https://user-images.githubusercontent.com/95453666/233799094-2513f005-3b55-47dc-8c3e-440d8dffd177.mp4
+
+
+
+## 🖥 Telas da Aplicação 
 
 #Principal
 
