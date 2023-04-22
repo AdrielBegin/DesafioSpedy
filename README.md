@@ -95,8 +95,8 @@ https://user-images.githubusercontent.com/95453666/233799094-2513f005-3b55-47dc-
 
 ## 🛠️ Construído com
 
-API construir em .NET Framework 6.0
-E a biblioteca react com Type Script
+* API construir em .NET Framework 6.0
+* E a biblioteca react com Type Script
 
 
 
