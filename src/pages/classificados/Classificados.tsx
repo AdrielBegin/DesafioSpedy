@@ -31,9 +31,9 @@ export const Classificado = () => {
         title: 'Tem certeza que deseja excluir?',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#dc3545',
+        confirmButtonColor: '#dc3546',
         confirmButtonText: 'Excluir',
-        cancelButtonColor: '#35dc51',
+        cancelButtonColor: '#198754',
         cancelButtonText: 'Cancelar',
       });
 
@@ -42,6 +42,7 @@ export const Classificado = () => {
         response.status === 201 && setContador(contador - 1);
         Swal.fire({
           title: 'Exclusão realizado com sucesso',
+          confirmButtonColor: '#198754',
           icon: 'success',
         });
       }
@@ -49,7 +50,7 @@ export const Classificado = () => {
       console.log("err: ", error);
       Swal.fire({
         title: 'Erro ao excluir',
-        text: 'Erro ao excluir o card',
+        text: 'Erro ao excluir o card',        
         icon: 'error',
       });
     }
@@ -94,11 +95,22 @@ export const Classificado = () => {
                     <CardText>
                       {classificado.Descricao}
                     </CardText>
-                    <Button color="danger" onClick={() => excluir(classificado.Id)}>
+                    <Button
+                      color="danger"
+                      style={{
+                        background: '#dc3545',
+                        opacity: '0.75'
+                      }}
+                      onClick={() =>
+                        excluir(classificado.Id)
+                      }>
                       Excluir
                     </Button>
                     <Col className='d-flex justify-content-center' >
-                      <AtualizarClassificados classificado={classificado} getClassificados={getClassificados} />
+                      <AtualizarClassificados
+                        classificado={classificado}
+                        getClassificados={getClassificados}
+                      />
                     </Col>
                   </Card>
                 </Col>
@@ -115,7 +127,8 @@ export const Classificado = () => {
                 style={{
                   width: '48rem',
                   backgroundColor: '#4E474F',
-                  borderRadius: '4px '
+                  borderRadius: '4px',
+                  padding: '4px'
                 }}>
                 {contador} Classificados
               </Card>

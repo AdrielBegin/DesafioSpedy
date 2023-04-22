@@ -30,6 +30,7 @@ export const NovoClassificados = ({ getClassificados }: INovoClassificado) => {
       response.status === 201 && getClassificados();
       Swal.fire({
         title: 'Salvo com sucesso',
+        confirmButtonColor: '#198754',
         icon: 'success',
       });
     } catch (error) {
@@ -41,19 +42,39 @@ export const NovoClassificados = ({ getClassificados }: INovoClassificado) => {
       Descricao: '',
       DataHora: ''
     });
-    
+
     toggleModal();
   }
 
   return (
     <>
-      <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '0px', padding: '1vw 25px 0px' }}>
-        <Button color="success" onClick={toggleModal} className=' m-0 '>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-end',
+          margin: '0px',
+          padding: '1vw 25px 0px'
+        }}>
+        <Button
+          className=' m-0 '
+          color="success"
+          onClick={toggleModal}
+          style={{
+            opacity: '0.80'
+          }}
+        >
           + Novo Classificado
         </Button>
-        <Modal isOpen={modal} toggle={toggleModal} >
+        <Modal
+          isOpen={modal}
+          toggle={toggleModal}
+        >
           <Form onSubmit={enviar}>
-            <ModalHeader className='d-flex flex-column' toggle={toggleModal}>Novo Classificado</ModalHeader>
+            <ModalHeader
+              className='d-flex flex-column'
+              toggle={toggleModal}>
+              Novo Classificado
+            </ModalHeader>
             <ModalBody>
               <Input
                 name='Titulo'
@@ -72,12 +93,16 @@ export const NovoClassificados = ({ getClassificados }: INovoClassificado) => {
             <ModalFooter>
               <Button
                 color="success"
-                type='submit'
-              >
+                type='submit'>
                 Salvar
               </Button>{''}
               <Button
-                color="warning"
+                color=""
+                style={{
+                  background: '#dc3545',
+                  color:'white',
+                  opacity: '0.75'
+                }}
                 onClick={toggle}>
                 Cancelar
               </Button>

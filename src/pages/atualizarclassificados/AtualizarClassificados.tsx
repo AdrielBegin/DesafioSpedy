@@ -30,9 +30,9 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
                 title: 'Tem certeza que deseja atualizar?',
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#dc3545',
+                confirmButtonColor: '#198754',
                 confirmButtonText: 'Alterar',
-                cancelButtonColor: '#35dc51',
+                cancelButtonColor: '#dc3546',
                 cancelButtonText: 'Cancelar',
             });
             if (confirma.isConfirmed) {
@@ -41,6 +41,7 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
                 setModal(false);
                 Swal.fire({
                     title: 'Atualizado com sucesso',
+                    confirmButtonColor: '#198754',
                     icon: 'success',
                 });
             }
@@ -56,22 +57,68 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
 
     return (
         <>
-            <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '0px', padding: '1vw 25px 0px' }}>
-                <Button color="warning" onClick={toggleModal} className=' m-0 ' style={{ padding: '6px 88px 4px 88px' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                    margin: '0px',
+                    padding: '1vw 25px 0px'
+                }}>
+                <Button
+                    className=' m-0 '
+                    color=""
+                    onClick={toggleModal}
+                    style={{
+                        padding: '6px 88px 4px 88px',
+                        background: '#3898C9',
+                        color: 'white',
+                        opacity:'0.80'
+                    }}>
                     Atualizar
                 </Button>
                 <Modal isOpen={modal} toggle={toggleModal} >
-                    <Form onSubmit={atualiza => { atualiza.preventDefault(); atualizarClassificados(classifica) }}>
-                        <ModalHeader className='d-flex flex-column' toggle={toggleModal}>Atualizar Classificado</ModalHeader>
+                    <Form onSubmit={atualiza => {
+                        atualiza.preventDefault();
+                        atualizarClassificados(classifica)
+                    }}>
+                        <ModalHeader
+                            className='d-flex flex-column'
+                            toggle={toggleModal}>
+                            Atualizar Classificado
+                        </ModalHeader>
                         <ModalBody>
-                            <Input name='Titulo' className='w-100 my-2' onChange={atualizarEstado} value={classifica.Titulo} placeholder='Titulo' required />
-                            <Input name='Descricao' className='w-100 my-2' onChange={atualizarEstado} value={classifica.Descricao} placeholder='Descrição' required />
+                            <Input
+                                name='Titulo'
+                                className='w-100 my-2'
+                                onChange={atualizarEstado}
+                                value={classifica.Titulo}
+                                placeholder='Titulo' required
+                            />
+                            <Input
+                                name='Descricao'
+                                className='w-100 my-2'
+                                onChange={atualizarEstado}
+                                value={classifica.Descricao}
+                                placeholder='Descrição'
+                                required
+                            />
                         </ModalBody>
                         <ModalFooter>
-                            <Button color="success" type='submit' onClick={() => { atualizarClassificados(classifica) }}>
+                            <Button
+                                color="success"
+                                type='submit'
+                                onClick={() => { atualizarClassificados(classifica) }}
+                            >
                                 Salvar
                             </Button>{''}
-                            <Button color="warning" onClick={toggle}>
+                            <Button
+                                color=""
+                                style={{
+                                    background: '#dc3545',
+                                    color: 'white',
+                                    opacity: '0.75'
+                                }}
+                                onClick={toggle}>
                                 Cancelar
                             </Button>
                         </ModalFooter>
