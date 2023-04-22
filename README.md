@@ -13,7 +13,7 @@ Node v18
 
 ### 🔧 Instalação
 
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
+Seguiam os passo-a-passo que para que você consiga executar para ter um ambiente de desenvolvimento em execução.
 
 Diga como essa etapa será:
 
@@ -30,6 +30,8 @@ npm install --save bootstrap
 npm i sweetalert2
 
 ```
+## ⚙️ Executando os testes
 
+Explicar como executar os testes automatizados para este sistema.
 
 
