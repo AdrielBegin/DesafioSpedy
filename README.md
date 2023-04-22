@@ -33,7 +33,7 @@ npm i sweetalert2
 ```
 ## ⚙️ Executando os testes
 
-Aqui está como ficou a aplicação fazendo execução de testes.
+Aqui está como ficou a aplicação realizando execução de testes.
 
 https://user-images.githubusercontent.com/95453666/233799094-2513f005-3b55-47dc-8c3e-440d8dffd177.mp4
 
