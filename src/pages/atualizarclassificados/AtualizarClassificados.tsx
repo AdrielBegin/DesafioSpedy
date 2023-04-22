@@ -31,7 +31,7 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#198754',
-                confirmButtonText: 'Alterar',
+                confirmButtonText: 'Atualizar',
                 cancelButtonColor: '#dc3546',
                 cancelButtonText: 'Cancelar',
             });
