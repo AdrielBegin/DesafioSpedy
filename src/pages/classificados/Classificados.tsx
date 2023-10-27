@@ -7,6 +7,8 @@ import { HiMagnifyingGlass } from 'react-icons/hi2'
 import { Api } from '../../providers';
 import { AtualizarClassificados } from '../atualizarclassificados/AtualizarClassificados';
 import Swal from 'sweetalert2'
+import { Login } from '../login/Login';
+
 
 
 export const Classificado = () => {
@@ -68,7 +70,7 @@ export const Classificado = () => {
         <Col className='d-flex justify-content-center'>
           <NavbarBrand className='Brand text-light'>
             <HiMagnifyingGlass /> Classificados
-          </NavbarBrand>
+          </NavbarBrand>          
         </Col>
       </Navbar>
       <div>
@@ -136,6 +138,7 @@ export const Classificado = () => {
           </Col>
         </Row>
       </div>
+      {/* <Login/> */}
     </div>
   );
 };

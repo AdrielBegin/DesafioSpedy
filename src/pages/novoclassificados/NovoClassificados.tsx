@@ -6,6 +6,7 @@ import { Api } from '../../providers';
 import Swal from 'sweetalert2'
 
 
+
 interface INovoClassificado {
   getClassificados: () => void
 }
@@ -109,7 +110,7 @@ export const NovoClassificados = ({ getClassificados }: INovoClassificado) => {
             </ModalFooter>
           </Form>
         </Modal>
-      </div>
+      </div>      
     </>
   )
 }
