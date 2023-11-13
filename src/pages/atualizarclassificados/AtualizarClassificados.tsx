@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2'
-import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reactstrap';
+import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Form, CardText } from 'reactstrap';
 import { ICriarClassificados } from '../../interfaces';
 import { Api } from '../../providers';
 
@@ -36,8 +36,10 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
                 cancelButtonText: 'Cancelar',
             });
             if (confirma.isConfirmed) {
+                classificados.DataHoraAtualizar = new Date().toISOString();
                 const response = await Api.put(`/api/Classificados/${classifica.Id}`, classificados);
                 response.status === 201 && getClassificados();
+                getClassificados();
                 setModal(false);
                 Swal.fire({
                     title: 'Atualizado com sucesso',
@@ -53,6 +55,7 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
             });
         }
         getClassificados();
+        setClassifica(usuarioAnterior => ({ ...usuarioAnterior, DataHoraAtualizar: '' }));
     }
 
     return (
@@ -72,7 +75,7 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
                         padding: '6px 88px 4px 88px',
                         background: '#3898C9',
                         color: 'white',
-                        opacity:'0.80'
+                        opacity: '0.80'
                     }}>
                     Atualizar
                 </Button>
@@ -87,6 +90,9 @@ export const AtualizarClassificados = ({ classificado, getClassificados }: IAtua
                             Atualizar Classificado
                         </ModalHeader>
                         <ModalBody>
+                            <CardText>
+                                Data de Atualização: {classificado.DataHoraAtualizar ? new Date(classificado.DataHoraAtualizar).toISOString():''}
+                            </CardText>
                             <Input
                                 name='Titulo'
                                 className='w-100 my-2'

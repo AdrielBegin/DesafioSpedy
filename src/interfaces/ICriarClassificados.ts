@@ -3,6 +3,7 @@ export interface ICriarClassificados {
     Id: number
     Titulo: string
     Descricao: string
-    DataHora: string
+    DataHoraInserir: string    
+    DataHoraAtualizar: string    
   }
   

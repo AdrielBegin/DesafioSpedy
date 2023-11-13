@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Navbar, NavbarBrand, CardText, CardGroup, CardHeader, Col, Row, Button } from 'reactstrap';
+import { Card, Navbar, NavbarBrand, CardText, CardGroup, CardHeader, Col, Row, Button, Input } from 'reactstrap';
 import { NovoClassificados } from '../novoclassificados/NovoClassificados';
 import { ICriarClassificados } from '../../interfaces';
 import { HiMagnifyingGlass } from 'react-icons/hi2'
@@ -14,6 +14,7 @@ export const Classificado = () => {
   const [modal, setModal] = useState(false);
   const [classificados, setClassificados] = useState<ICriarClassificados[]>([]);
   const [contador, setContador] = useState(0);
+
 
   const getClassificados = async () => {
     try {
@@ -50,7 +51,7 @@ export const Classificado = () => {
       console.log("err: ", error);
       Swal.fire({
         title: 'Erro ao excluir',
-        text: 'Erro ao excluir o card',        
+        text: 'Erro ao excluir o card',
         icon: 'error',
       });
     }
@@ -90,7 +91,16 @@ export const Classificado = () => {
                       {classificado.Titulo}
                     </CardHeader>
                     <CardText>
-                      Data de Cadastro: {new Date(classificado.DataHora).toLocaleDateString('pt-BR')}
+                      {classificado.DataHoraInserir && (
+                        <CardText>
+                          Data de Cadastro: {new Date(classificado.DataHoraInserir).toLocaleDateString('pt-BR')}
+                        </CardText>
+                      )}
+                      {classificado.DataHoraAtualizar && (
+                        <CardText>
+                          Data de Atualização: {new Date(classificado.DataHoraAtualizar).toLocaleDateString('pt-BR')}
+                        </CardText>
+                      )}
                     </CardText>
                     <CardText>
                       {classificado.Descricao}

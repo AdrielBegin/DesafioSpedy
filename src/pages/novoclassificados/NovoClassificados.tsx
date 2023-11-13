@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Form } from 'reactstrap';
+import { Button, Input, Modal, ModalHeader, ModalBody, ModalFooter, Form, CardText} from 'reactstrap';
 import { ICriarClassificados } from '../../interfaces';
 import { Api } from '../../providers';
+import { post } from '../../providers';
 import Swal from 'sweetalert2'
 
 
@@ -15,7 +16,7 @@ export const NovoClassificados = ({ getClassificados }: INovoClassificado) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   const toggleModal = () => setModal(estadoAnterior => !estadoAnterior);
-  const [classifica, setClassifica] = useState<ICriarClassificados>({ Id: 0, Titulo: '', Descricao: '', DataHora: '' });
+  const [classifica, setClassifica] = useState<ICriarClassificados>({ Id: 0, Titulo: '', Descricao: '', DataHoraInserir: '', DataHoraAtualizar: '' });
 
 
   const atualizarEstado = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,6 +27,10 @@ export const NovoClassificados = ({ getClassificados }: INovoClassificado) => {
   const enviar = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
+      if(!classifica.DataHoraInserir && !classifica.DataHoraInserir){
+        classifica.DataHoraInserir = new Date().toISOString();        
+        classifica.DataHoraAtualizar = new Date().toISOString();        
+      }
       const response = await Api.post('/api/Classificados', classifica);
       response.status === 201 && getClassificados();
       Swal.fire({
@@ -34,13 +39,15 @@ export const NovoClassificados = ({ getClassificados }: INovoClassificado) => {
         icon: 'success',
       });
     } catch (error) {
-      console.log("err: ", error)
+      console.log("Erro na chamada POST: ", error)
     }
     setClassifica({
       Id: 0,
       Titulo: '',
       Descricao: '',
-      DataHora: ''
+      DataHoraInserir: '',
+      DataHoraAtualizar: ''
+
     });
 
     toggleModal();
@@ -74,7 +81,7 @@ export const NovoClassificados = ({ getClassificados }: INovoClassificado) => {
               className='d-flex flex-column'
               toggle={toggleModal}>
               Novo Classificado
-            </ModalHeader>
+            </ModalHeader>              
             <ModalBody>
               <Input
                 name='Titulo'
@@ -100,7 +107,7 @@ export const NovoClassificados = ({ getClassificados }: INovoClassificado) => {
                 color=""
                 style={{
                   background: '#dc3545',
-                  color:'white',
+                  color: 'white',
                   opacity: '0.75'
                 }}
                 onClick={toggle}>
