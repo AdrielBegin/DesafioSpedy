@@ -17,7 +17,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { Api } from "../../providers";
 import { AtualizarClassificados } from "../atualizarclassificados/AtualizarClassificados";
 import Swal from "sweetalert2";
-import { AreaAdmin } from "../login/areas/AreaAdmin";
+import { GerenciaUsuarios } from "../login/areas/GerenciaUsuarios";
 
 
 export const Classificado = () => {
@@ -97,7 +97,7 @@ export const Classificado = () => {
         <Col className="d-flex justify-content-center">
           <NavbarBrand className="Brand text-light">
             
-            <a href="/areaadmin">Area Admin</a>
+            <a href="/gerenciausuarios">Area Admin</a>
           </NavbarBrand>
         </Col>
         <Col className="d-flex justify-content-center">
@@ -181,8 +181,7 @@ export const Classificado = () => {
             </Col>
           </Col>
         </Row>
-      </div>
-      {/* <Login/> */}
+      </div>      
     </div>
   );
 };

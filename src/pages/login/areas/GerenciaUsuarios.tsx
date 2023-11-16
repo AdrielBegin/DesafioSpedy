@@ -10,7 +10,7 @@ import {
 
 
 
-export const AreaAdmin = () => {
+export const GerenciaUsuarios = () => {
     return (
         <div>
             <Navbar
@@ -32,7 +32,7 @@ export const AreaAdmin = () => {
             <Col className="d-flex justify-content-center">
                 Usuários
             </Col>
-            <Row>
+            <Row className="m-0">
                 <Col>
                     <Table>
                         <thead>
@@ -41,13 +41,13 @@ export const AreaAdmin = () => {
                                     #
                                 </th>
                                 <th>
-                                    First Name
+                                    Usuário ID
                                 </th>
                                 <th>
-                                    Last Name
+                                    Nome
                                 </th>
                                 <th>
-                                    Username
+                                    Ação
                                 </th>
                             </tr>
                         </thead>
@@ -63,37 +63,16 @@ export const AreaAdmin = () => {
                                     Otto
                                 </td>
                                 <td>
-                                    @mdo
+                                    <Row className="">
+                                        <div className=" ">
+                                            <Button>Excluir</Button>
+                                        </div>
+                                        <div className=" ">
+                                            <Button>Editar</Button>
+                                        </div>
+                                    </Row>
                                 </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    2
-                                </th>
-                                <td>
-                                    Jacob
-                                </td>
-                                <td>
-                                    Thornton
-                                </td>
-                                <td>
-                                    @fat
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    3
-                                </th>
-                                <td>
-                                    Larry
-                                </td>
-                                <td>
-                                    the Bird
-                                </td>
-                                <td>
-                                    @twitter
-                                </td>
-                            </tr>
+                            </tr>                            
                         </tbody>
                     </Table>
                 </Col>
