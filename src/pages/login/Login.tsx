@@ -3,6 +3,17 @@ import { Input, Form, FormGroup, Label, Button } from "reactstrap";
 import { ILogin } from "../../interfaces/ILogin";
 import { Api } from "../../providers";
 import { useNavigate } from "react-router-dom";
+import {
+  Card,
+  Navbar,
+  NavbarBrand,
+  CardText,
+  CardGroup,
+  CardHeader,
+  Col,
+  Row,
+  
+} from "reactstrap";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -32,17 +43,17 @@ export const Login = () => {
   return (
     <div className="container-fluid p-4">
       <div className="row">
-        <div className="col-md-6 text-center text-md-start d-flex flex-column justify-content-center">
+        <Col className="col-md-6 text-center text-md-start d-flex flex-column justify-content-center">
           <h1 className="my-5 display-3 fw-bold ls-tight px-3">
             Classifica
             <span className="text-primary"> business</span>
           </h1>
-        </div>
-        <div className="col-md-6">
+        </Col>
+        <Col className="col-md-6">
           <div className="card my-5">
             <div className="card-body p-5">
               <div className="row">
-                <div className="col">
+                <Col className="col">
                   <Form onSubmit={enviar}>
                     <h1>Login</h1>
                     <FormGroup>
@@ -75,7 +86,7 @@ export const Login = () => {
                     </FormGroup>
                     <Button type="submit">Entrar</Button>
                   </Form>
-                </div>
+                </Col>
               </div>
               <div className="text-center">
                 <p>or entrar up with:</p>
@@ -85,7 +96,7 @@ export const Login = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Col>
       </div>
     </div>
   );

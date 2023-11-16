@@ -17,7 +17,8 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { Api } from "../../providers";
 import { AtualizarClassificados } from "../atualizarclassificados/AtualizarClassificados";
 import Swal from "sweetalert2";
-import { Login } from "../login/Login";
+import { AreaAdmin } from "../login/areas/AreaAdmin";
+
 
 export const Classificado = () => {
   const [modal, setModal] = useState(false);
@@ -95,7 +96,8 @@ export const Classificado = () => {
         </Col>
         <Col className="d-flex justify-content-center">
           <NavbarBrand className="Brand text-light">
-            <HiMagnifyingGlass /> Classifica
+            
+            <a href="/areaadmin">Area Admin</a>
           </NavbarBrand>
         </Col>
         <Col className="d-flex justify-content-center">
