@@ -1,8 +1,6 @@
-
 export interface ICriarClassificados {
-    Id: number
-    Titulo: string
-    Descricao: string
-    DataHora: string
-  }
-  
+  Id: number
+  Titulo: string
+  Descricao: string
+  DataHora: string
+}

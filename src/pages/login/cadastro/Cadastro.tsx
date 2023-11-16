@@ -1,27 +1,24 @@
 import React, { useState } from "react";
 import { Input, Form, FormGroup, Label, Button } from "reactstrap";
-import { ILogin } from "../../interfaces/ILogin";
-import { Api } from "../../providers";
-import { useNavigate } from "react-router-dom";
+import { Api } from "../../../providers";
+import { ICadastroLogin } from "../../../interfaces";
 
-export const Login = () => {
-  const navigate = useNavigate();
-  const [entrar, setEntrar] = useState<ILogin>({
+export const Cadastro = () => {
+  const [cadastrar, setCadastrar] = useState<ICadastroLogin>({
     Email: "",
     Password: "",
-    RememberMe: true,
+    ConfirmPassword: "",
   });
 
   const atualizarInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setEntrar({ ...entrar, [name]: value });
+    setCadastrar({ ...cadastrar, [name]: value });
   };
   const enviar = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await Api.post("/Login", entrar);
-      if (response.status === 200) {
-        navigate("/classificado");
+      const response = await Api.post("/Register", cadastrar);
+      if (response.status === 201) {
         console.log("Deu bom");
       }
     } catch (error) {
@@ -44,7 +41,7 @@ export const Login = () => {
               <div className="row">
                 <div className="col">
                   <Form onSubmit={enviar}>
-                    <h1>Login</h1>
+                    <h1>Cadastro</h1>
                     <FormGroup>
                       <Label for="exampleEmail">Email</Label>
                       <div className="form-outline mb-4">
@@ -54,9 +51,8 @@ export const Login = () => {
                           placeholder="with a placeholder"
                           type="email"
                           className="form-control active"
-                          value={entrar.Email}
+                          value={cadastrar.Email}
                           onChange={atualizarInput}
-                          autoComplete="null"
                         />
                       </div>
                     </FormGroup>
@@ -68,20 +64,27 @@ export const Login = () => {
                           name="Password"
                           placeholder="password placeholder"
                           type="password"
-                          value={entrar.Password}
+                          value={cadastrar.Password}
                           onChange={atualizarInput}
                         />
                       </div>
                     </FormGroup>
-                    <Button type="submit">Entrar</Button>
+                    <FormGroup>
+                      <Label for="examplePassword">Confirma Password</Label>
+                      <div className="form-outline mb-4">
+                        <Input
+                          id="examplePassword"
+                          name="ConfirmPassword"
+                          placeholder="password placeholder"
+                          type="password"
+                          value={cadastrar.ConfirmPassword}
+                          onChange={atualizarInput}
+                        />
+                      </div>
+                    </FormGroup>
+                    <Button type="submit">cadastrar</Button>
                   </Form>
                 </div>
-              </div>
-              <div className="text-center">
-                <p>or entrar up with:</p>
-                <a className="ripple ripple-surface mx-3" role="button">
-                  <a href="/cadastrar"> registrar </a>
-                </a>
               </div>
             </div>
           </div>
