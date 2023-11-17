@@ -6,11 +6,10 @@ import {
     Button,
     Table,
 } from "reactstrap";
-import { NovoUsuario } from "./novoUsuario/NovoUsuario";
 
 
 
-export const GerenciaUsuarios = () => {
+export const GerenciarRoles = () => {
     return (
         <div>
             <Navbar
@@ -31,8 +30,7 @@ export const GerenciaUsuarios = () => {
             </Navbar>
             <Col className="d-flex justify-content-center">
                 Usuários
-            </Col>       
-            
+            </Col>
             <Row className="m-0">
                 <Col>
                     <Table>
@@ -46,10 +44,7 @@ export const GerenciaUsuarios = () => {
                                 </th>
                                 <th>
                                     Nome
-                                </th>
-                                <th>
-                                    Ação
-                                </th>
+                                </th>                                
                             </tr>
                         </thead>
                         <tbody>
@@ -59,10 +54,7 @@ export const GerenciaUsuarios = () => {
                                 </th>
                                 <td>
                                     Mark
-                                </td>
-                                <td>
-                                    Otto
-                                </td>
+                                </td>                                
                                 <td>
                                     <Col className="">
                                         <div className="">
@@ -73,7 +65,7 @@ export const GerenciaUsuarios = () => {
                                         </div>
                                     </Col>
                                 </td>
-                            </tr>
+                            </tr>                            
                         </tbody>
                     </Table>
                 </Col>

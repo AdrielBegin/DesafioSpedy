@@ -9,6 +9,7 @@ import { NovoClassificados } from "../pages/novoclassificados/NovoClassificados"
 import { Login } from "../pages/login/Login";
 import { Cadastro } from "../pages/login/cadastro/Cadastro";
 import { GerenciaUsuarios } from "../pages/login/areas/GerenciaUsuarios";
+import { NovoUsuario } from "../pages/login/areas/novoUsuario/NovoUsuario";
 
 export const Routes = () => {
   return (
@@ -19,6 +20,7 @@ export const Routes = () => {
         <Route path="/cadastrar" element={<Cadastro />} />
         <Route path="/classificado" element={<Classificado />} />
         <Route path="/gerenciausuarios" element={<GerenciaUsuarios />} />
+        <Route path="/novousuario" element={<NovoUsuario />} />
       </Switch>
     </BrowserRouter>
   );
